@@ -57,3 +57,18 @@ CAPAS:
   <li><strong> VOLUMEN: </strong> Permite que la capa sea persistente y no se elimine. </li>
 
 </ol>
+
+
+En la capa de CMD se puede ejecutar un script.
+
+    #!/bin/bash
+
+    echo "Iniciando container..."
+    echo "INICIADO!!" > /var/www/html/ini.html
+    apachectl -DFOREGROUND
+
+Para evitar que se carguen ciertos archivos debemos incluirlos en .dockerignore
+
+
+
+
