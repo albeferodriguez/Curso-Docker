@@ -1,17 +1,27 @@
 FROM ubuntu:latest 
 
+LABEL version=1.0
+LABEL description="This is an apache image"
+LABEL vendor=yo
+
 RUN apt update
 RUN apt install apache2 -y
 
-WORKDIR /var/www/html
+COPY startbootstrap-freelancer-master /var/www/html
 
-COPY startbootstrap-freelancer-master .
+RUN echo "$(whoami)" > /var/www/html/user1.html
 
-ENV contenido prueba
+RUN useradd gema
 
-RUN echo "$contenido" > ./prueba.html
+USER gema
 
-EXPOSE 8080
+RUN echo "$(whoami)" > /tmp/user2.html
+
+VOLUME /var/www/html
+
+USER root
+
+RUN cp /tmp/user2.html /var/www/html/user2.html
 
 CMD apache2ctl -DFOREGROUND
 
