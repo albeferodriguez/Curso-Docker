@@ -53,4 +53,7 @@ CAPAS:
   <li><strong> EXPOSE: </strong> Indica el puerto que se va a utilizar. </li>
   <li><strong> LABEL: </strong> Sirve para añadir metadata a la imagen. </li>
   <li><strong> CMD: </strong> Proporciona valores predeterminados para un contenedor en ejecución. </li>
+  <li><strong> USER: </strong> Permite cambiar de usuario para ejecute las siguientes capas. </li>
+  <li><strong> VOLUMEN: </strong> Permite que la capa sea persistente y no se elimine. </li>
+
 </ol>
