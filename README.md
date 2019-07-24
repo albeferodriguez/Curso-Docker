@@ -70,5 +70,16 @@ En la capa de CMD se puede ejecutar un script.
 Para evitar que se carguen ciertos archivos debemos incluirlos en .dockerignore
 
 
+<h4><strong> BUENAS PRÁCTICAS </h4></strong>
 
+<ul>
+  <li> Las imágenes han de ser efímeras, es decir, que se puedan destruir con facilidad. </li>
+  <li> Debería existir un solo servicio instalado por imágen. </li>
+  <li> Importante añadir a .dockignore los archivos que no usemos. </li>
+  <li> Usar las capas justamente necesarias. </li>
+  <li> Los argumentos se deben separar si fueran demasiados largos. </li>
+  <li> Podemos pasar varios argumentos en una sola capa en lugar de usar muchas capas. </li>
+  <li> No instalar paquetes innecesarios. </li>
+  <li> Es importante usar Labels para aplicar la metadata a la imagen. </li>
+</ul>
 
