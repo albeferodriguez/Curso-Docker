@@ -24,7 +24,7 @@ Los contenedores son capas adicionales que permiten realizar una ejecución en t
 
 Contiene imágenes, volúmenes, redes...
 
-<h2><strong> DOCKER MAGENES </strong></h3>
+<h2><strong> DOCKER IMAGENES </strong></h3>
 
 Existen empresas de software libre que tienen imágenes creadas para poder usar en contenedores, estas imágenes están almacenadas en docker hub.
 
@@ -40,3 +40,17 @@ Para crear por ejemplo una imagen que tenga Apache y PHP tendremos que:
 
 Puesto que queremos que en Docker esté todo automatizado debemos añadir las respuestas a las preguntas que nos salten por consola.
 También podemos crear Tags personalizados.
+
+CAPAS:
+
+<ol>
+  <li><strong> FORM: </strong> Establece el SO del sistema. </li>
+  <li><strong> RUN: </strong> Ejecuta los comandos necesarios. </li>
+  <li><strong> COPY: </strong> Sirve para copiar documentos. Si por ejemplo queremos usar Apache debemos copiar en la carpeta     var/www/html que es la que usa por defecto. </li>
+  <li><strong> ADD: </strong> Es similar al COPY pero se utiliza para añadir direcciones URL externos a un archivo. </li>
+  <li><strong> ENV: </strong> Sirve para crear variables de entorno. </li>
+  <li><strong> WORKDIR: </strong> Sirve para declarar rutas y evitar que se repitan sucesivamente. </li>
+  <li><strong> EXPOSE: </strong> Indica el puerto que se va a utilizar. </li>
+  <li><strong> LABEL: </strong> Sirve para añadir metadata a la imagen. </li>
+  <li><strong> CMD: </strong> Proporciona valores predeterminados para un contenedor en ejecución. </li>
+</ol>
