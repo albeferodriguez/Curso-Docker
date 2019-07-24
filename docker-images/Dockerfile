@@ -23,7 +23,9 @@ USER root
 
 RUN cp /tmp/user2.html /var/www/html/user2.html
 
-CMD apache2ctl -DFOREGROUND
+COPY run.sh /run.sh
+
+CMD sh /run.sh
 
 
 
