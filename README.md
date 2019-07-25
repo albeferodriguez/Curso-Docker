@@ -90,4 +90,20 @@ A la hora de crear la imagen debemos de asignarle un nuevo nombre y con un flag 
 
     docker build -t test -f my-dockerfile
     
+    
+<h4><strong> DANGLING IMAGES </strong></h4>
+
+Las dangling images son imagenes que no son referencias porque se ha creado con posterioridad otra imagen con el mismo nombre.
+Para evitar esto debemos asignar tags a las imagenes para que estas no se queden sin referenciar:
+
+    docker build -t test:v1
+    docker build -t test:v2
+    docker build -t test:v3
+    
+Si quisieramos eliminar todas las imagenes sin referencias deberamos filtrar y utilizar el comando xargs de linux para poder borrar todas:
+
+    docker images -f dangling=true -q | xargs docker rmi
+    
+
+    
  
