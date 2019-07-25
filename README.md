@@ -84,3 +84,10 @@ Para eliminar una imagen debemos usar el comando Docker rmi ID_imagen ó Nombre_
   <li> Es importante usar Labels para aplicar la metadata a la imagen. </li>
 </ul>
 
+<h4><strong> CAMBIAR NOMBRE AL DOCKERFILE </strong></h4>
+
+A la hora de crear la imagen debemos de asignarle un nuevo nombre y con un flag añadir el dockerfile.
+
+    docker build -t test -f my-dockerfile
+    
+ 
