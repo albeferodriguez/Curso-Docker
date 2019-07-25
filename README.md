@@ -69,6 +69,7 @@ En la capa de CMD se puede ejecutar un script.
 
 Para evitar que se carguen ciertos archivos debemos incluirlos en .dockerignore
 
+Para eliminar una imagen debemos usar el comando Docker rmi ID_imagen ó Nombre_imagen
 
 <h4><strong> BUENAS PRÁCTICAS </h4></strong>
 
