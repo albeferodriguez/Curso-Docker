@@ -163,4 +163,23 @@ Para crear variables de entorno cuando el contenedor se crea debemos usar la opc
     
 Para poder usar mysql en el contenedor debemos acceder a el e instalar mysql
 
+<h4><strong> CREAR UN CONTENEDOR MYSQL </strong></h4>
  
+Para crear un contenedor con mysql debemos de tener instalado mysql en nuestro SO y en Docker.
+ 
+Una vez tenemos eso, al lanzar el comando run debemos especificar el nombre y crear una variable de entorno MYSQL_ROOT_PASSWORD con la contraseña que queramos y por ultimo el tag de mysql
+ 
+    Docker run -d --name my-db1 -e "MYSQL_ROOT_PASSWORD=1234" mysql:5.7
+    
+Luego para ver si nos funciona podemos entrar al puerto donde mapeamos el contenedor, si no lo hemos mapeado podemos acceder con la ip que se optiene usando el comando inspect
+
+    Docker inspect
+    mysql -u root -h <IP_ADDRESS> -p<CONTRASEÑA>
+    
+Un contenedor con mas informacion para la base de datos seria el siguiente:
+
+    docker run -d --name my-db3 -p 3333:3306 -e "MYSQL_ROOT_PASSWORD=1234" -e "MYSQL_DATABASE=docker" -e "MYSQL_USER=docker" -e "MYSQL_PASSWORD=4321" mysql:5.7
+    
+Para eliminar todos los contenedores:
+
+    docker rm -fv $(docker ps -aq)
