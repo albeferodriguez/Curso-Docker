@@ -105,5 +105,60 @@ Si quisieramos eliminar todas las imagenes sin referencias deberamos filtrar y u
     docker images -f dangling=true -q | xargs docker rmi
     
 
+ <h2><strong> DOCKER CONTENEDORES </strong></h2>
+ 
+Los contenedores son instancias de imagenes en ejecución.
+
+Para poder <u><strong>listar</strong></u> los contenederos en uso debemos utilizar el siguiente comando:
+
+     docker ps
+     
+Para <u><strong>mapear</strong></u> un contenedor a un puerto en concreto debemos añadir la funcion -p al ejecutarlo y el puerto donde queremos que se ejecute:
+
+    docker run -d -p 8080:8080 jenkins
     
+Para poder <u><strong>eliminar</strong></u> los contenedores debemos usar el comando -f para forzarlo si esta arrancado acompañado del comando rm
+
+    docker rm -f <nombre del contenedor>
+    
+Para <u><strong>renombrar</strong></u> un contenedor debemos utilizar el comando rename poniendo primero el nomber actual seguido del nuevo nombre
+ 
+    docker ps (para ver el nombre actual)
+    docker rename <nombre_antiguo> <nombre_nuevo>
+    
+ Para <u><strong>detener</strong></u> un contenedor debemos utilizar el comando stop seguido del nombre del contenedor.
+ 
+    docker stop <Nombre contenedor> o <ID>
+    
+Para <u><strong>iniciar</strong></u> un contenedor que este detenido debemos usar el comando start
+
+    docker start <Nombre contenedor>
+    
+Para <u><strong>reiniciar</strong></u> un contenedor debemos usar el comando restart
+
+    docker restart <Nombre contenedor>
+    
+Para <u><strong>crear consola dentro del terminal</strong></u> debemos utilizar el comando exec con las opciones -ti (siendo t de terminal e i de interactivo) y añadiendo bash que va a ser el tipo de la shell.
+
+    docker exec -ti <Nombre contenedor> bash
+
+Si quisieramos entrar al contenedor como root debemos añadir la opcion -u (usuario) y especificarle root
+
+    docker exec -u root -ti <Nombre contenedor> bash
+    
+Esto nos sirve para poder ver si hay archivos, o cualquier cosa que necesitemos observar, en ejecucion.
+Por ejemplo Jenkins nos pide que escribamos una contraseña que se encuentra dentro del contendor jenkins que hemos creado previamente, entonces lo que hacemos es crear un consola bash y acceder a ese archivo.
+
+<h4><strong> VARIABLES DE ENTORNO </strong> </h4>
+
+Las variables de entorno se pueden definir tanto en el dockerfile.
+
+Para crear una imagen con un SO debemos usuar las opciones -dti
+
+    docker build -dti --name env env
+    
+Para crear variables de entorno cuando el contenedor se crea debemos usar la opcion -e
+
+    docker run -dti -e "prueba1=4321" --name eviroment env
+
  
