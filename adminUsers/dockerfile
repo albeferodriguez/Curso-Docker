@@ -1,0 +1,7 @@
+FROM centos
+
+ENV prueba 123
+
+RUN useradd angus
+
+USER angus
