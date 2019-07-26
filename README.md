@@ -160,5 +160,7 @@ Para crear una imagen con un SO debemos usuar las opciones -dti
 Para crear variables de entorno cuando el contenedor se crea debemos usar la opcion -e
 
     docker run -dti -e "prueba1=4321" --name eviroment env
+    
+Para poder usar mysql en el contenedor debemos acceder a el e instalar mysql
 
  
