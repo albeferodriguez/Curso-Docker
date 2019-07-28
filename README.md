@@ -183,3 +183,7 @@ Un contenedor con mas informacion para la base de datos seria el siguiente:
 Para eliminar todos los contenedores:
 
     docker rm -fv $(docker ps -aq)
+
+
+<h2><strong> VOLÚMENES </strong></h2>
+
