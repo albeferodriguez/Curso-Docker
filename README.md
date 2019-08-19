@@ -185,5 +185,4 @@ Para eliminar todos los contenedores:
     docker rm -fv $(docker ps -aq)
 
 
-<h2><strong> VOLÚMENES </strong></h2>
 
