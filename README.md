@@ -185,4 +185,56 @@ Para eliminar todos los contenedores:
     docker rm -fv $(docker ps -aq)
 
 
+<h2><strong> REDES </strong></h2>
+
+Docker tiene una mini red virtual al macenada en Docker bridge
+
+<h4><strong> REDES DEFINIDAS POR EL USUARIO </strong></h4>
+
+Para crear una red definida por el usuario basta con usar el comando create y asignarle un nombre.
+
+    Docker network create test-network
+    
+Si queremos asignarle una subnet (--subnet) y si queremos asignarle un gateway (--gateway)
+
+    Docker network create -d bridge --subnet 127.110.10.0/24 --gateway 172.124.10.1
+    
+<h4><strong> INSPECCIONAR REDES </strong></h4>
+
+Utilizamos el comando inspect
+
+    Docker network inspect <nombre de la red>
+    
+<h4><strong> AGREGAR CONTENEDORES A UNA RED DISTINTA A LA POR DEFECTO </strong></h4>
+
+Solo necesitariamos añadir la red en el momento en el que creamos el contenedor usando el comnado --network
+
+    docker run --network test-network -d -ti centos
+
+<h4><strong> CONECTAR CONTENEDORES EN LA MISMA RED </strong></h4>
+
+Creamos dos contenedores 
+
+    docker  run -d --network test-network --name cont1 -ti centos
+    docker  run -d --network test-network --name cont2 -ti centos
+
+Para conectarlas entre ellas basta con hacer un ping de un contendor a otro
+
+    docker exec cont1 bash -c "ping cont2"
+    
+<h4><strong> ELIMINAR REDES </strong></h4>
+
+    docker network rm <nombre de la red>
+    
+<h4><strong> ASIGNAR IP A UN CONTENEDOR </strong></h4>
+
+Basta con añadir la opcion --ip a la hora de crear un contenedor
+
+    docker run --network my-net --ip 172.128.10.0/24 -d --name nginx1 -ti centos
+    
+
+
+  
+
+
 
