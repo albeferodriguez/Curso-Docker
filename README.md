@@ -233,8 +233,33 @@ Basta con añadir la opcion --ip a la hora de crear un contenedor
     docker run --network my-net --ip 172.128.10.0/24 -d --name nginx1 -ti centos
     
 
+<h2><strong> DOCKER COMPOSE </strong></h2>
 
-  
+Es una herramienta de docker que nos permite crear una aplicacion multicontenedor.
+
+Para instalarlo:
+
+    sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    
+Para empezar debemos crear un archivo con extension .yml que contengan de manera obligatoria una version y unos servicios y de manera opcional unos volumenes y unas networks.
+
+    version: '3'
+    services: 
+      web:
+        container_name: nginx1
+        ports:
+          - "8080:80"
+        image: nginx
+
+Para levantarlo hacemos 
+
+    docker-compose up -d
+    
+Y para eliminarlo 
+
+    docker-compose down
+
+<h4><strong> VARIABLES DE ENTORNO <h4><strong>
 
 
 
