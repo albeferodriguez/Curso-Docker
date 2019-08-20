@@ -259,7 +259,16 @@ Y para eliminarlo
 
     docker-compose down
 
-<h4><strong> VARIABLES DE ENTORNO <h4><strong>
+Para crear variables de entorno basta con añadir la variable environment, y para crear Volumenes igual pero usando volumes
 
-
-
+    version: '3'
+    services: 
+      db:
+        container_name: mysql
+        ports:
+          - "3326:3306"
+        image: mysql:5.7
+        environment:
+          - "MYSQL_ROOT_PASSWORD=12345678"
+    volumes:
+        vol2:
